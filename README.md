@@ -4,7 +4,7 @@ AWPy is a Python library used to connect to Ambient Weather's API, including sup
 
 ## Prerequisites
 
-A socketIO_client library that supports SocketIO 2.x and pure websocket connection is required to connect to AW's Realtime API, you can use [this library](https://github.com/DefinitelyNotAnAlien/socketIO-client-2.0.3), if you wish to use a different one change the import statement in line 9.
+A SocketIO client library that supports SocketIO 2.x and pure websocket connection is required to connect to AW's Realtime API, you can use [this library](https://github.com/DefinitelyNotAnAlien/socketIO-client-2.0.3), if you wish to use a different one change the import statement in line 9.
 
 ## Usage
 
@@ -15,8 +15,8 @@ A socketIO_client library that supports SocketIO 2.x and pure websocket connecti
 * Add unit conversion to SI units.
 * Add documentation and docstrings.
 * Add support for timezones (Use strptime and timedelta, perhaps?)
-* Improve callback functions for Realtime API.
-* Add support for checking data for single weather stations in the REST API.
+* ~Improve callback functions for Realtime API.~
+* Allow checking data for single weather stations in the REST API.
 
 ## License
 
