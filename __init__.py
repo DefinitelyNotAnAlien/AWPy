@@ -5,12 +5,12 @@ from time import sleep
 import requests
 try:
     logging.debug('Attempting to import socketIO_client library...')
-    from .socketIO_client_next import SocketIO
+    from socketIO_client_next import SocketIO
     SocketIO_Client_Loaded = True
     logging.info('socketIO_client library loaded.')
 except ModuleNotFoundError:
-    logging.warning('''Failed to import socketIO_client, only the REST API can
-                     be accessed.''')
+    logging.warning('Failed to import socketIO_client, only the REST API can '
+                    'be accessed.')
     SocketIO_Client_Loaded = False
 
 
@@ -85,7 +85,8 @@ class AW_API(object):
             logging.critical('No socketIO_client library detected, '
                              'Realtime API cannot be accessed.'
                              )
-            raise Exception('No SocketIO Client Library detected.')
+            raise Exception('No SocketIO Client library, please try'
+                            'downloading a compatible socketIO_client.')
         self.auto_subscribe = auto_subscribe
         logging.debug('Connecting to the Ambient Weather Realtime API...')
         self.SocketIO = SocketIO(ENDPOINT, 443, transports=['websocket'],
@@ -122,7 +123,7 @@ class AW_API(object):
     def data(self, weather_data):
         """Call the set function for the 'data' event.
 
-        If no function is set the event data will be printed.
+        If no function is set the data will be printed.
         """
         try:
             self.callback['data'](weather_data)
